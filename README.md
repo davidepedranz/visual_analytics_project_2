@@ -6,4 +6,6 @@ The assignment is to design an interactive visual analytics application for some
 
 ## Dataset
 
+The dataset can be found in the `dataset` folder. The dataset was downloaded on Sempteber 17, 2017 from:
 https://data.seattle.gov/Public-Safety/Seattle-Police-Department-911-Incident-Response/3k2p-39jp
+

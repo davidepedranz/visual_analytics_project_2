@@ -12,9 +12,9 @@ The visualization is just a number that represent the average resolution time of
 
 ### Attempt 1
 
-The first trial is `horizontal bars`. The x axis represents the average resolution time, while the y axis the type of incident. It is easy to notice that some types have a much lower or higher resolution speed than the others. However, it is difficult to understand which types have the similar resolution times. To solve this problem, we sort the types by increasing average resolution time.
+The first trial is `horizotal bars`. The x axis represents the average resolution time, while the y axis the type of incident. It is easy to notice that some types have a much lower or higher resolution speed than the others. However, it is difficult to understand which types have the similar resolution times. To solve this problem, we sort the types by increasing average resolution time.
 
-The visualization answer the questions. Types `vice calls` has the fastes resolution time (about 20 minutes). `false alarms` resolution time is also low (about 50 minutes). Most types vary from 1 hour to 2 hour and 30 minutes. `public gatherings` and `homicide` take on average much longer.
+The visualization answers the questions. Types `vice calls` has the fastes resolution time (about 20 minutes). `false alarms` resolution time is also low (about 50 minutes). Most types vary from 1 hour to 2 hour and 30 minutes. `public gatherings` and `homicide` take on average much longer.
 
 Durations in minutes are difficult to read if they are greather than 1 hour. We need to format it to hours and minutes. Unfortunatelly, there is no such functionality in Tableau. There are workarounds (https://community.tableau.com/thread/154812) for computing the single value, but not for aggregations.
 
@@ -24,7 +24,7 @@ The `horizontal bar` of attempt 1 takes too much space on the screen (since ther
 
 ### Attempt 3
 
-Add color for types (overloading). No clear advantage… maybe only noise.
+Add color for types (overloading). There is a visual encoding of types in colors, the legend allows to read the plot more easily. The legend allows to select a single voice and immediately locate it in the plot.
 
 ### Attempt 4
 
@@ -34,3 +34,4 @@ Add labels with duration to read plot better. TODO: verify if ok. (working on ho
 
 ### Attempt 1
 
+Gantt plot with all points. Then singol bar charts for the averages over year, month, searson.

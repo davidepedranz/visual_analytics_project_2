@@ -1,7 +1,5 @@
 # Question 2
 
-
-
 ## Question 2.1: spatial distribution over years
 
 Since we want to visualize a spatial distribution, we use a map. We filter out values without a time, since we are interested in the differences among years.
@@ -60,8 +58,6 @@ It is possible to see the trends (changes in the distribution) as a kind of "ani
 #### Weak points
 
 It is not possible to compare 2 years side by side.
-
-
 
 ## Question 2.2: zone with consistent low/high level density over all years?
 

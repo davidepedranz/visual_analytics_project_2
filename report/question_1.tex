@@ -27,7 +27,124 @@ The zoom level is small in order to get an overview of the entire city that fits
 
 The visualization answers the question, but it is not optimal.
 A better solution would be to use a density plot which is able to visualize better the differences of incidents' densities in the city.
-Unfortunately, Tableau does offer density plots, so I tried to approximate it.
+Unfortunately, Tableau does offer density plot: the proposed solution tries to approximate a density plot in Tableau.
 
 \subsection*{Question 1.2}
 \textit{Are there high variations of incidents densities over Seattle for specific types of incidents? Which are these types and which are the variations you found?}
+
+The visualization uses an approach similar to the previous section, but uses pagination to display the different types of incidents in isolation.
+This is done by using the ``Pages'' option in Tableau:
+it is possible to interactively change the type visualized by using the dedicated menu.
+The visualization uses a filter to exclude the observations without a type.
+Since there are less observations in each page, the opacity value is set to a higher value ($30\%$).
+
+\begin{figure}[h] 
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=0.9\linewidth]{figures/1_2_geographical_distribution_arrests} 
+        \caption{Arrests}
+        \label{fig:1_2_arrests}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=0.9\linewidth]{figures/1_2_geographical_distribution_prostitution}
+        \caption{Prostitution}
+        \label{fig:1_2_prostitution}
+    \end{subfigure}
+    \caption{Geographical distribution of the incidents of type \textit{arrest} (on the left) and \textit{prostitution} (on the right) in Seattle. The screenshots are taken from the sheet called \textit{Sheet 2} in Tableau.}
+    \label{fig:1_2_geographical_distribution_by_type}
+\end{figure}
+
+\cref{fig:1_2_geographical_distribution_by_type} shows $2$ snapshots for the types ``arrest'' and ``prostitution''.
+From the figure it is already possible to notice that different types of incidents have different distributions in the city.
+\cref{tab:distribution_by_type} contains the observations for every type of incident.
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{ | >{\arraybackslash} m{3.8cm} | >{\arraybackslash} m{11.2cm} | }
+    \hline
+    \textbf{Incident Type} & \textbf{Description} \\
+    \hline
+    Accident Investigation  &   Higher concentration in the city center. Outside the city center, main roads have a higher concentration than the surrounding areas. \\
+    \hline        
+    Animal Complaints       &   Slightly higher concentration in the city center. \\
+    \hline
+    Arrest                  &   Higher concentration in the city center and along main roads in the north and south of the city. \\
+    \hline
+    Assaults                &   Like ``Arrest''. \\
+    \hline
+    Auto Thefts             &   No significant variations. \\
+    \hline
+    Behavioral Health       &   Higher concentration in the city center. \\
+    \hline
+    Bike                    &   Higher concentration in the city center. The north has a higher concentration thant the south. \\
+    \hline
+    Burglary                &   No significant variations. \\
+    \hline
+    Car Prowl               &   Slightly more concentrated in the city center. \\
+    \hline
+    Disturbances            &   Like ``Car Prowl''. \\
+    \hline
+    Drive By (No Injury)    &   Higher concentration in south east, almost absent in the other sectors. \\
+    \hline
+    Failure to Register (Sex Offender) &   Slightly more concentrated in the city center and south east. \\
+    \hline
+    False Alacad            &   No significant variations. \\
+    \hline
+    False Alarms            &   No significant variations. \\
+    \hline
+    Fraud Calls             &   Like ``Car Prowl''. \\
+    \hline
+    Harbor Calls            &   Concentrated along the coast. \\
+    \hline
+    Hazards                 &   Like ``Arrest''. \\
+    \hline
+    Homicide                &   Slightly more concentrated in the city center. \\
+    \hline
+    Lewd Conduct            &   Higher concentration in the city center. \\
+    \hline
+    Liquor Violations       &   Like ``Arrest''. \\
+    \hline
+    Miscellaneous Misdemeanors &   Like ``Arrest''. \\
+    \hline
+    Motor Vehicle Collision Investigation &   More concentrated in the center and along the streets. \\
+    \hline
+    Narcotics Complaints    &   Like ``Arrest''. \\
+    \hline
+    Nuisance, Mischief      &   Like ``Arrest''. \\
+    \hline
+    Other Property          &   Like ``Arrest''. \\
+    \hline
+    Person Down / Injury    &   Higher concentration in the city center. \\
+    \hline
+    Persons - Lost, Found, Missing &   Slightly more concentrated in the city center. \\
+    \hline
+    Property - Missing, Found    &   Slightly more concentrated in the city center. \\
+    \hline
+    Property Damage         &   Like ``Arrest''. \\
+    \hline
+    Prostitution            &   Concentrated along the main streets in the north and in the south. Present also in the city center. \\
+    \hline
+    Prowler                 &   No significant variations. \\
+    \hline
+    Public Gatherings       &   Higher concentration in the city center. \\
+    \hline
+    Reckless Burning        &   No significant variations. \\
+    \hline
+    Robbery                 &   Like ``Arrest''. \\
+    \hline
+    Shoplifting             &   Like ``Arrest''. \\
+    \hline
+    Suspicious Circumstances &   No significant variations. \\
+    \hline
+    Threats, Harassment     &   Like ``Arrest''. \\
+    \hline
+    Traffic Related Calls   &   No significant variations. \\
+    \hline
+    Trespass                &   Like ``Arrest''. \\
+    \hline
+    Vice Calls              &   No significant variations. \\
+    \hline
+    Weapon Calls            &   Like ``Arrest''. \\
+    \hline
+
+    \caption{Distribution of incidents in Seattle by type.}
+    \label{tab:distribution_by_type}
+\end{longtable}

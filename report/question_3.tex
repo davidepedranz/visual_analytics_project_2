@@ -81,3 +81,48 @@ We can notice that:
 
 \subsection*{Question 3.3}
 \textit{Does the resolution speed depend on the time period (e.g., year, season of the year)?}
+
+The visualization uses a Gantt chart to visualize the resolution speed of incidents over time.
+The x-axis encode the time at scene, the y-axis the resolution speed in hours.
+We use color to overload the encoding of the resolution speed.
+In particular, we use a continuos heat colormap.
+We show the average line in order to be able to compare time ranges with the average behaviour.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{figures/3_3_resolution_speed_vs_time}
+	\caption{Incidents' resolution speed over time. The sheet is called ``Resolution Speed vs Time'' in Tableau.}
+	\label{fig:3_3_resolution_speed_vs_time}
+\end{figure}
+
+The visualization is difficult to read due to the presence of the $3$ outliers described in Question 3.1.
+Since we have discussed them already, we remove them from this visualization.
+The result is shown is \cref{fig:3_3_resolution_speed_vs_time}:
+\begin{itemize}
+    \item There are $4$ slots of times that appears differently. The $1^{st}$ (02/2009 - 01/2010) and $3^{rd}$ (02/2013 - 07/2014) slots have almost no data. There is not much we can say about those periods.
+    \item The $2^{nd}$ slot (02/2011 - 01/2013) has a period where incidents are resolved faster, in particular from 03/2011 to 08/2012; in this period incidents most incidents are closed in less than $2$ hours.
+    \item The $4^{th}$ slot (08/2014 - 09/2017) seems to have a uniform distribution for the resolution times, with an average higher than the $2^{nd}$ slot.
+\end{itemize}
+
+From \cref{fig:3_3_resolution_speed_vs_time} the resolution speed seems not correlated to the particular period of the year (i.e. month or season).
+To confirm this hypothesis, we create $2$ other histograms that show respectively the average resolution speed by season and by month (see \cref{fig:3_3_resolution_speed_by_season_and_month}):
+there does not seem to be a significant correlation between the period of the year and the incidents' resolution speed.
+The Gantt chart and the $2$ bar charts are grouped in the ``Resolution Speed'' dashboard.
+
+\begin{figure}[h!]
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=0.5\linewidth]{figures/3_3_resolution_speed_by_season} 
+        \caption{Resolution speed by season.}
+        \label{fig:3_3_resolution_speed_by_season}
+    \end{subfigure}
+    \begin{subfigure}{0.6\textwidth}
+        \centering
+        \includegraphics[width=0.84\linewidth]{figures/3_3_resolution_speed_by_month}
+        \caption{Resolution speed by month.}
+        \label{fig:3_3_resolution_speed_by_month}
+    \end{subfigure}
+    \caption{Resolution speed by season and month.}
+    \label{fig:3_3_resolution_speed_by_season_and_month}
+\end{figure}
+

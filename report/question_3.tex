@@ -53,6 +53,30 @@ We can notice that:
 \subsection*{Question 3.2}
 \textit{Are there certain types of incidents having a much lower resolution speed than others? If so, which are these?}
 
+The visualization uses a bar chart.
+Each type of is encoded in one bar and the height of the bar corresponds to the average resolution time for that type.
+The types are ordered by average resolution time decreasing, so it is easy to spot the outliers.
+Color is used to overload the encoding of the incident type.
+The bar chart show the average line to make comparison and reasoning easier.
+We prefer to use the x-axis for the type and the y-axis for the average resolution time since the visualization with swapped axises does not fit a single screen.
+
+\cref{fig:3_2_resolution_speed_by_type} shows the visualization.
+We can notice that:
+\begin{itemize}
+    \item ``Homicide'' is the type with the highest average resolution time. This is not a surprise, since such an incident requires very accurate investigations.
+    \item ``Public Gatherings'' has the seconds highest average resolution time. This is probably due to the high number of people involved in the incident.
+    \item ``Vice Calls'' is has the fastest resolution time, on average only about $30$ minutes.
+    \item ``False Alarms'' are also resolved quite fast, less than $1$ hour on average.
+    \item All other types have resolution times between $1$ and $3$ hours on average.
+    \item The distribution is skewed to towards types with higher resolution times.
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{figures/3_2_resolution_speed_by_type}
+	\caption{Incidents' resolution time by type. The sheet is called ``Resolution Time by Type'' in Tableau.}
+	\label{fig:3_2_resolution_speed_by_type}
+\end{figure}
 
 
 \subsection*{Question 3.3}

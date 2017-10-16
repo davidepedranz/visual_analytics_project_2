@@ -32,26 +32,28 @@ Unfortunately, Tableau does offer density plot: the proposed solution tries to a
 \subsection*{Question 1.2}
 \textit{Are there high variations of incidents densities over Seattle for specific types of incidents? Which are these types and which are the variations you found?}
 
+\begin{figure}[h!] 
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures/1_2_geographical_distribution_arrests} 
+        \caption{Arrests}
+        \label{fig:1_2_arrests}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures/1_2_geographical_distribution_prostitution}
+        \caption{Prostitution}
+        \label{fig:1_2_prostitution}
+    \end{subfigure}
+    \caption{Geographical distribution of the incidents of type \textit{arrest} (on the left) and \textit{prostitution} (on the right) in Seattle. The screenshots are taken from the sheet called \textit{Sheet 22} in Tableau.}
+    \label{fig:1_2_geographical_distribution_by_type}
+\end{figure}
+
 The visualization uses an approach similar to the previous section, but uses pagination to display the different types of incidents in isolation.
 This is done by using the ``Pages'' option in Tableau:
 it is possible to interactively change the type visualized by using the dedicated menu.
 The visualization uses a filter to exclude the observations without a type.
 Since there are less observations in each page, the opacity value is set to a higher value ($30\%$).
-
-\begin{figure}[h] 
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=0.9\linewidth]{figures/1_2_geographical_distribution_arrests} 
-        \caption{Arrests}
-        \label{fig:1_2_arrests}
-    \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
-        \includegraphics[width=0.9\linewidth]{figures/1_2_geographical_distribution_prostitution}
-        \caption{Prostitution}
-        \label{fig:1_2_prostitution}
-    \end{subfigure}
-    \caption{Geographical distribution of the incidents of type \textit{arrest} (on the left) and \textit{prostitution} (on the right) in Seattle. The screenshots are taken from the sheet called \textit{Sheet 2} in Tableau.}
-    \label{fig:1_2_geographical_distribution_by_type}
-\end{figure}
 
 \cref{fig:1_2_geographical_distribution_by_type} shows $2$ snapshots for the types ``arrest'' and ``prostitution''.
 From the figure it is already possible to notice that different types of incidents have different distributions in the city.
@@ -148,3 +150,42 @@ From the figure it is already possible to notice that different types of inciden
     \caption{Distribution of incidents in Seattle by type.}
     \label{tab:distribution_by_type}
 \end{longtable}
+
+The proposed visualization allows to individually analyze the distribution of incidents for each single type.
+However, it makes really difficult to compare different types, since the user needs to change page each time.
+% If the comparison is between following types (i.e. $2$ types whose name are successive in alphabetical order), the task can still be done,
+% but for types which 
+
+To overcome this limitation, we have to display different types together.
+The first solution is to visualize all incidents together on the same map and use a categorical color map to distinguish them (see sheet \textit{Incidents Distribution (all types together)} in Tableau).
+The user would be able to interactively select subsets of types to display and filter out the others.
+This solution has $2$ main problems:
+\begin{itemize}
+    \item A categorical color map should use color which appear very different for each other to be useful, in the ideal case a set of color for which each pair has the same distance in RGB from each other. Unfortunately, it is impossible to find such a set for more than $4$ colors. We have about $40$ different types, so such an encoding is not effective.
+    \item There are too many points, so even if we could find a good set of colors for the encoding, the point would overlap with each other. We can not use transparency to visualize also the underlying points since, since colors would mix together and create new ones.
+\end{itemize}
+
+One could use the following approaches to solve the problem:
+\begin{itemize}
+    \item Select a subset of types to show. Unfortunately, there is not an easy choice for that. Types with a higher number of incidents do not have in most cases an interesting distribution (i.e. their geographical distribution is similar to the one for all incidents). On the other hand, types with a small numbers of incidents have often very interesting distributions (see ``Prostitution'').
+    \item Cluster similar types together. Unfortunately it is not easy to build a types' hierarchy.
+\end{itemize}
+
+An alternative solution is to use a ``small multiple design'', i.e. create a visualization for a single type and replicate it multiple times.
+Sheet ``Incidents Distribution (small multiple design)'' implements this idea:
+each types is displayed on its own map, and maps for different types are shown in columns adjacent to each other (we use columns because the shape of the city on the chart is stretched out along the y-axis).
+The type of incident in encoded both in space (different charts) and in color:
+this overloading makes easier to distinguish different types.
+Types are sorted by default in alphabetical order, but the user can interactively re-order them in order to compare $2$ or $3$ types at a time.
+\cref{fig:1_2_geographical_distribution_comparison} shows an example of such a comparison:
+types ``Prostitution'', ``Drive by'' and ``Failure to register (seff offender)'' seems to be somehow correlated in the south-east part of the city but not in the north.
+The size of each point is chosen to be small, but the opacity is set larger than for question 1.1, since there are fewer point in each map.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.75\columnwidth]{figures/1_2_geographical_distribution_comparison}
+	\caption{Geographical distribution of incidents of types ``Prostitution'', ``Drive by'' and ``Failure to register (seff offender)'' in Seattle.} 
+	\label{fig:1_2_geographical_distribution_comparison}
+\end{figure}
+
+

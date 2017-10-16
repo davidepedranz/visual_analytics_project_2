@@ -1,1 +1,17 @@
 \section{Exploring the resolution speed}
+
+The dataset does not define the average resolution time explicitly.
+Thus, we need to add a new columns to the dataset with this information.
+Tableau is able to compute new dimensions using the existing ones.
+Since we compute a difference between $2$ timestamp, we use the function ``datediff'' to get a proper result.
+
+% TODO: measure unit!
+
+\subsection*{Question 3.1}
+\textit{What is the average resolution speed to an incident? Resolution speed is defined as the difference between the Event Clearance Date value (moment when the police closed the file of an incident) and the At Scene Time value (moment when the police arrived at the scene of the incident).}
+
+\subsection*{Question 3.2}
+\textit{Are there certain types of incidents having a much lower resolution speed than others? If so, which are these?}
+
+\subsection*{Question 3.3}
+\textit{Does the resolution speed depend on the time period (e.g., year, season of the year)?}

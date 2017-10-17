@@ -9,9 +9,9 @@ Each cell in the map contains a square, whose area and color are proportional to
 Color uses a continuos heat colormap.
 
 The order of rows and columns is initially alphabetical.
-However this order does not have any particular meaning, since there is no $1$-to-$1$ mapping between the categorical values of ``Initial Type Group'' and ``Event Clearance Group''.
+However, this order does not have any particular meaning, since there is no $1$-to-$1$ mapping between the categorical values of \textit{Initial Type Group} and \textit{Event Clearance Group}.
 Starting from such an order, we have manually moved some rows and columns to types which seems to be possibly correlated, in order to show this correlation along the main diagonal.
-For example, ``Initial Type Group'' has the value \textit{Parking Violation}, but ``Event Clearance Group'' does not have it:
+For example, \textit{Initial Type Group} has the value \textit{Parking Violation}, but \textit{Event Clearance Group} does not have it:
 we have it closed to \textit{Traffic Related Calls}.
 
 \cref{fig:4_1_initial_vs_final_group_heatmap} shows the visualization.
@@ -25,7 +25,7 @@ We can see that:
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\columnwidth]{figures/4_1_initial_vs_final_group_heatmap}
-	\caption{Correlation between the initial and final incident type. The sheet is called ``Initial vs Final Type'' in Tableau.}
+	\caption{Correlation between the initial and final incident type. The sheet is called \textit{Initial vs Final Type} in Tableau.}
 	\label{fig:4_1_initial_vs_final_group_heatmap}
 \end{figure}
 
@@ -39,7 +39,7 @@ We filter out values without an initial type since we have discussed this case p
 We use the initial type for the first split for the treemap.
 Each rectangle corresponds to a pair initial and final types.
 Both the color and the area of each rectangle encode the number of elements for the particular pair.
-Tooltips allows the user to interactively get additional information for each rectangle, namely initial type, final type and number of matching incidents.
+Tooltips allow the user to interactively get additional information for each rectangle, namely initial type, final type and number of matching incidents.
 
 \cref{fig:4_1_initial_vs_final_group_treemap} shows the visualization:
 \begin{itemize}
@@ -54,7 +54,7 @@ However, a lot of incidents with some particular initial cases are often classif
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\columnwidth]{figures/4_1_initial_vs_final_group_treemap}
-	\caption{Correlation between the initial and final incident type (excluding incidents without an initial type). The sheet is called ``Initial vs Final Type (exclude nulls)'' in Tableau.}
+	\caption{Correlation between the initial and final incident type (excluding incidents without an initial type). The sheet is called \textit{Initial vs Final Type (exclude nulls)} in Tableau.}
 	\label{fig:4_1_initial_vs_final_group_treemap}
 \end{figure}
 
@@ -65,7 +65,7 @@ However, a lot of incidents with some particular initial cases are often classif
 To answer this question we have created $2$ treemaps very similar to \cref{fig:4_1_initial_vs_final_group_treemap}.
 The former is a shows first the initial and then the final types (including null values), the latter shows first the final and then the initial types.
 
-% TODO: put screenshot of dashboard ``Incident Types Break-Down''.
+% TODO: put screenshot of dashboard \textit{Incident Types Break-Down}.
 % To complete the dashboard, we add $2$ histogram to show the initial and final groups marginal distributions.
 
 We can notice the following:
@@ -76,7 +76,7 @@ We can notice the following:
 	\item There is no the problem of missing data for the final type: less than $1\%$ of the incidents miss it.
 	\item There are $4$ main final types of incidents that include about $1/2$ of the entries, namely \textit{Traffic Related Calls}, \textit{Suspicious Circumstances}, \textit{Disturbances} and \textit{Liquor Violations}.
 	\item The remaining $1/2$ is distributed among the other types.
-	\item In most cases, the majority of incidents in each final type group matches the initial type. There is thus a correlation between the initial and final incident types, as said for Question 1.1
+	\item In most cases, the majority of incidents in each final type group matches the initial type. There is thus a correlation between the initial and final incident type, as said for Question 4.1
 \end{itemize}
 
 
@@ -85,12 +85,12 @@ We can notice the following:
 
 The visualization uses a treemap, since groups and subgroups can naturally be organized in a tree hierarchy.
 Each group is represented by a rectangle, which can be divided in sub-rectangles to represent the subgroups, if any.
-Both color and size (area) encode the number of incidents with the given type / subtype.
+Both color and area of the rectangles encode the number of incidents with the given type / subtype.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\columnwidth]{figures/4_3_groups_subgroups}
-	\caption{Incidents by Type and Subtype. The sheet is called ``Incidents Types Distribution (Group and Subgroup))'' in Tableau.}
+	\caption{Incidents by Type and Subtype. The sheet is called \textit{Incidents Types Distribution (Group and Subgroup)} in Tableau.}
 	\label{fig:4_3_groups_subgroups}
 \end{figure}
 
@@ -102,4 +102,3 @@ We can see that:
 	\item Groups that are divided in subgroups have only $2$ or $3$ of them.
 	\item In most cases there is a dominant subgroups that includes most of the cases; the only exception is the group \textit{Traffic Related Calls}, where incidents are distributed almost equally in both subgroups \textit{Traffic Related Calls} and \textit{Parking Violations}.
 \end{itemize}
-

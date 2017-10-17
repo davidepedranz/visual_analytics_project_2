@@ -6,14 +6,14 @@
 The dataset does not define the average resolution time explicitly.
 Thus, we need to add a new columns to the dataset with this information.
 Tableau is able to compute new dimensions using the existing ones.
-Since we compute a difference between $2$ timestamp, we use the function ``datediff'' to get a proper result.
+Since we compute a difference between $2$ timestamp, we use the function \texttt{datediff} to get a proper result.
 
 The average resolution time of the entire dataset is about $2$ hours.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{figures/3_1_resolution_speed_outliers}
-	\caption{Distribution of the resolution times. The annotations on the plot show some outliers with very high resolution times. Most of the incidents are closed in few hours.}
+	\caption{Distribution of the resolution times. The annotations on the plot show some outliers with very high resolution times. Most of the incidents are closed in few hours. This is a screenshot of sheet \textit{Resolution Times Distribution} in Tableau.}
 	\label{fig:3_1_resolution_speed_outliers}
 \end{figure}
 
@@ -21,15 +21,14 @@ The average resolution time of the entire dataset is about $2$ hours.
 We can notice that:
 \begin{itemize}
     \item Most incidents are closed in few hours.
-    \item There are few outliers that have a resolution time of over $1500$ hours (approximately 2 months). All outliers share the same type: ``Car Prowl''.
+    \item There are few outliers that have a resolution time of over $1500$ hours (approximately 2 months). All outliers share the same type: \textit{Car Prowl}.
 \end{itemize}
 
 The line chart gives already some interesting insides about incidents resolution times.
-However, due to the described outliers, it is difficult to read the left part of the chart, where most of the distribution mass is.
+Due to the described outliers, it is difficult to read the left part of the chart, where most of the distribution mass is.
 
 To solve the problem, we add an histogram of the resolution times.
-Resolution time is a continuos measure.
-However, we are not interested in the precise value of resolution time for each incident, rather in the overall distribution.
+Resolution time is a continuos measure, but we are not interested in the precise value for each incident, rather in the overall distribution.
 To visualize the distribution, we discretize the resolution time in buckets of $1$ hour.
 Since most of the density mass in the first $15$ buckets, we cut the histogram after the first $20$ ones.
 Since we are loosing the outliers, we add a table that contains such information.
@@ -39,13 +38,13 @@ We can notice that:
 \begin{itemize}
     \item The average resolution time is about $2$ hours.
     \item There are some outliers, but their number is really low in comparison to the amount of entries.
-    \item Overall most incidents are closed in less than $10$ hours.
+    \item Most incidents are closed in less than $10$ hours.
 \end{itemize}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\columnwidth]{figures/3_1_resolution_speed}
-	\caption{Distribution of the resolution times. The dashboard is called ``Resolution Times'' in Tableau.}
+	\caption{Distribution of the resolution times. The dashboard is called \textit{Resolution Times} in Tableau.}
 	\label{fig:3_1_resolution_speed}
 \end{figure}
 
@@ -63,10 +62,10 @@ We prefer to use the x-axis for the type and the y-axis for the average resoluti
 \cref{fig:3_2_resolution_speed_by_type} shows the visualization.
 We can notice that:
 \begin{itemize}
-    \item ``Homicide'' is the type with the highest average resolution time. This is not a surprise, since such an incident requires very accurate investigations.
-    \item ``Public Gatherings'' has the seconds highest average resolution time. This is probably due to the high number of people involved in the incident.
-    \item ``Vice Calls'' is has the fastest resolution time, on average only about $30$ minutes.
-    \item ``False Alarms'' are also resolved quite fast, less than $1$ hour on average.
+    \item \textit{Homicide} is the type with the highest average resolution time. This is not a surprise, since such an incident requires very accurate investigations.
+    \item \textit{Public Gatherings} have the seconds highest average resolution time. This is probably due to the high number of people involved in the incident.
+    \item \textit{Vice Calls} have the fastest resolution time, on average only about $30$ minutes.
+    \item \textit{False Alarms} are also resolved quite fast, less than $1$ hour on average.
     \item All other types have resolution times between $1$ and $3$ hours on average.
     \item The distribution is skewed to towards types with higher resolution times.
 \end{itemize}
@@ -74,7 +73,7 @@ We can notice that:
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\columnwidth]{figures/3_2_resolution_speed_by_type}
-	\caption{Incidents' resolution time by type. The sheet is called ``Resolution Time by Type'' in Tableau.}
+	\caption{Incidents' resolution time by type. The sheet is called \textit{Resolution Time by Type} in Tableau.}
 	\label{fig:3_2_resolution_speed_by_type}
 \end{figure}
 
@@ -91,7 +90,7 @@ We show the average line in order to be able to compare time ranges with the ave
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\columnwidth]{figures/3_3_resolution_speed_vs_time}
-	\caption{Incidents' resolution speed over time. The sheet is called ``Resolution Speed vs Time'' in Tableau.}
+	\caption{Incidents' resolution speed over time. Please note that the $3$ outliers cited in the text are excluded from this visualization. The sheet is called \textit{Resolution Speed vs Time} in Tableau.}
 	\label{fig:3_3_resolution_speed_vs_time}
 \end{figure}
 
@@ -100,29 +99,28 @@ Since we have discussed them already, we remove them from this visualization.
 The result is shown is \cref{fig:3_3_resolution_speed_vs_time}:
 \begin{itemize}
     \item There are $4$ slots of times that appears differently. The $1^{st}$ (02/2009 - 01/2010) and $3^{rd}$ (02/2013 - 07/2014) slots have almost no data. There is not much we can say about those periods.
-    \item The $2^{nd}$ slot (02/2011 - 01/2013) has a period where incidents are resolved faster, in particular from 03/2011 to 08/2012; in this period incidents most incidents are closed in less than $2$ hours.
-    \item The $4^{th}$ slot (08/2014 - 09/2017) seems to have a uniform distribution for the resolution times, with an average higher than the $2^{nd}$ slot.
+    \item The $2^{nd}$ slot (02/2011 - 01/2013) has a period where incidents are resolved faster, in particular from 03/2011 to 08/2012; in this period most incidents are closed in less than $2$ hours.
+    \item The $4^{th}$ slot (08/2014 - 09/2017) seems to have a uniform distribution for the resolution speeds, with an average higher than the $2^{nd}$ slot.
 \end{itemize}
 
-From \cref{fig:3_3_resolution_speed_vs_time} the resolution speed seems not correlated to the particular period of the year (i.e. month or season).
-To confirm this hypothesis, we create $2$ other histograms that show respectively the average resolution speed by season and by month (see \cref{fig:3_3_resolution_speed_by_season_and_month}):
-there does not seem to be a significant correlation between the period of the year and the incidents' resolution speed.
-The Gantt chart and the $2$ bar charts are grouped in the ``Resolution Speed'' dashboard.
+From \cref{fig:3_3_resolution_speed_vs_time} the resolution speed seems to be not correlated to the particular period of the year (i.e. month or season).
+To confirm this hypothesis, we create $2$ new bar charts that show respectively the average resolution speed by season and by month (see \cref{fig:3_3_resolution_speed_by_season_and_month}):
+there is no significant correlation between the period of the year and the incidents' resolution speed.
+The Gantt chart and the $2$ bar charts are grouped in the \textit{Resolution Speed} dashboard.
 
 \begin{figure}[h!]
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.5\linewidth]{figures/3_3_resolution_speed_by_season} 
+        \includegraphics[width=0.342\linewidth]{figures/3_3_resolution_speed_by_season} 
         \caption{Resolution speed by season.}
         \label{fig:3_3_resolution_speed_by_season}
     \end{subfigure}
-    \begin{subfigure}{0.6\textwidth}
+    \begin{subfigure}{0.55\textwidth}
         \centering
-        \includegraphics[width=0.84\linewidth]{figures/3_3_resolution_speed_by_month}
+        \includegraphics[width=0.7\linewidth]{figures/3_3_resolution_speed_by_month}
         \caption{Resolution speed by month.}
         \label{fig:3_3_resolution_speed_by_month}
     \end{subfigure}
-    \caption{Resolution speed by season and month.}
+    \caption{Resolution speed by season and month. The bar chart are grouped in the \textit{Resolution Speed} dashboard in Tableau.}
     \label{fig:3_3_resolution_speed_by_season_and_month}
 \end{figure}
-

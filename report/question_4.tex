@@ -58,10 +58,34 @@ Tooltips allows the user to interactively get additional information for each re
 To sum up, there is a quite strong correlation between initial and final types.
 However, a lot of incidents with some particular initial cases are often classified in a different way afterwards (e.g. \textit{Suspicious circumstances}).
 
-
 \subsection*{Question 4.2}
 \textit{How do the total number of incidents break down per incident reported type (Initial Type Group) and incident resolution type (Event Clearance Group)?}
 
+% To answer this question we can use the visualization build for the previous questions (see \cref{fig:4_1_initial_vs_final_group_treemap}):
+% \begin{itemize}
+% 	\item There are $5$ main types of 
+% \end{itemize}
 
 \subsection*{Question 4.3}
 \textit{How do the total number of incidents break down per incident resolution type (Event Clearance Group) and incident resolution subtype (Event Clearance Subgroup)?}
+
+Since groups and subgroups can be organized in a tree hierarchy, the visualization uses a treemap.
+Each group is represented by a rectangle, which can be divided in sub-rectangles to represent the subgroups, if any.
+Both color and size (area) encode the number of incidents with the given type / subtype.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{figures/4_3_groups_subgroups}
+	\caption{Incidents by Type and Subtype. The sheet is called ``Incidents Types Distribution (Group and Subgroup))'' in Tableau.}
+	\label{fig:4_3_groups_subgroups}
+\end{figure}
+
+\cref{fig:4_3_groups_subgroups} shows the visualization.
+We can see that:
+\begin{itemize}
+	\item There are $4$ types that include about $50\%$ of all of incidents, namely \textit{Traffic Related Calls}, \textit{Suspicious Circumstances}, \textit{Disturbances} and \textit{Liquor Violations}.
+	\item Only $10$ out of $45$ type groups have subtypes.
+	\item Groups that are divided in subgroups have only $2$ or $3$ of them.
+	\item In most cases there is a dominant subgroups that includes most of the cases; the only exception is the group \textit{Traffic Related Calls}, where incidents are distributed almost equally in both subgroups \textit{Traffic Related Calls} and \textit{Parking Violations}.
+\end{itemize}
+

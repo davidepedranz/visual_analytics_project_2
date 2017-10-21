@@ -3,6 +3,53 @@
 \subsection*{Question 5.1}
 \textit{How do the different types of incidents (as represented by Event Clearance Group) vary in number over the different years? Do you see different types of incidents having the same temporal variation pattern over the same year(s)?}
 
+The visualization uses a bar charts and the small multiple design principle.
+The x-axis represent the time (in years), while the y-axis encodes the number of incidents for the given year.
+The bar chart is replicated for each incident type; bar charts for different types are organized in columns.
+Color is used to overload the encoding of the number of incidents (showed by the y-axis).
+Trend lines are drawn for each small bar chart to show the trend of the number of incidents over year for each different type.
+The bar charts are ordered for the total number of incidents per type (decreasing).
+The types with less incidents are aggregated together in the \textit{Others} group to spare space on the screen thus better and fit the visualization.
+Since there are very few data for $2009$ and $2010$, those years are removed from the visualization.
+We filter also a null value for the date since we are interested in the trend of incidents over years.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\columnwidth]{figures/5_1_incidents_by_type_and_year}
+	\caption{Number of incidents by year and type. The sheet is called \textit{Number of Incidents by Year and Type} in Tableau.}
+	\label{fig:5_1_incidents_by_type_and_year}
+\end{figure}
+
+\cref{fig:5_1_incidents_by_type_and_year} shows the visualization.
+We can observe the following:
+\begin{itemize}
+    \item Only $2$ incidents' types decreased over time, namely \textit{Accident Investigation} and \textit{Mental Health}. For both types there is no single incident reported in years $2016$ and $2017$. We believe that this might be due to a change in the classification of incidents in types between $2015$ and $2016$.
+    \item All other types of incidents showed an increase over time.
+    \item Most incidents show a common pattern: there is an increase from $2011$ to $2012$ and a clear drop in $2013$; $2014$ has a about the same number of incidents as $2014$; years $2015$ and $2016$ have a fast increase, with the peak in $2016$; $2017$ has slightly less incidents than $2016$ (this is probably due to the missing data for the last $3$ months of 2017).
+\end{itemize}
+
+The visualization allows to answer the question.
+However, it does not show the general trend of the incidents number over years.
+To solve this problem, we created a second visualization using another bar chart.
+The y-axis represents the incidents' types, the x-axis and color encode the number of incidents for the given year.
+We use a continuous heatmap for the color, but a different color for the maximum value in comparison with the visualization in \cref{fig:5_1_incidents_by_type_and_year}.
+
+The visualization is showed in \cref{fig:5_1_incidents_by_year}.
+We can notice that:
+\begin{itemize}
+    \item The majority of incidents in the dataset do not have the date information. The confident of the answer to the question is thus low.
+    \item The general temporal distribution of incidents has the same trend of most incidents' types.
+\end{itemize} 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\columnwidth]{figures/5_1_incidents_by_year}
+	\caption{Number of incidents by year. The sheet is called \textit{Number of Incidents by Year} in Tableau.}
+	\label{fig:5_1_incidents_by_year}
+\end{figure}
+
+The visualizations are grouped together in the \textit{Incidents Temporal Distribution by Type} dashboard.
+
 
 \subsection*{Question 5.2}
 \textit{How do the different types of reported incidents (as represented by Initial Type Group) vary over the 24 hours of a day, for the entire data collection? Are there certain hours having a higher rate of reported incidents?}

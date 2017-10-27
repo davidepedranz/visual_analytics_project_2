@@ -3,13 +3,6 @@
 \subsection*{Question 5.1}
 \textit{How do the different types of incidents (as represented by Event Clearance Group) vary in number over the different years? Do you see different types of incidents having the same temporal variation pattern over the same year(s)?}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.9\columnwidth]{figures/5_1_incidents_by_type_and_year}
-	\caption{Number of incidents by year and type. The sheet is called \textit{Number of Incidents by Year and Type} in Tableau.}
-	\label{fig:5_1_incidents_by_type_and_year}
-\end{figure}
-
 The visualization uses bar charts and the small multiple design principle.
 The x-axis represent the time (in years), while the y-axis encodes the number of incidents for the given year.
 The bar chart is replicated for each incident type; bar charts for different types are organized in columns.
@@ -19,6 +12,13 @@ The bar charts are ordered for the total number of incidents per type (decreasin
 The types with less incidents are aggregated together in the \textit{Others} group to spare space on the screen and thus better fit the visualization.
 Since there are very few data for $2009$ and $2010$, those years are removed from the visualization.
 We filter also null values for the date since we are interested in the trend of incidents over years.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\columnwidth]{figures/5_1_incidents_by_type_and_year}
+	\caption{Number of incidents by year and type. The sheet is called \textit{Number of Incidents by Year and Type} in Tableau.}
+	\label{fig:5_1_incidents_by_type_and_year}
+\end{figure}
 
 \cref{fig:5_1_incidents_by_type_and_year} shows the visualization.
 We can observe the following:
@@ -61,19 +61,19 @@ The bar charts are ordered for the total number of incidents per type (decreasin
 The types with less incidents are aggregated together in the \textit{Others} group to spare space on the screen thus better and fit the visualization and null values are filtered out.
 We add the average line for each type in order to easier spot hours with more or less incidents than the average.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\columnwidth]{figures/5_2_incidents_by_type_and_hour}
-	\caption{Number of incidents by type over the different hours of the day. The sheet is called \textit{Incidents Distribution over the Day} in Tableau.}
-	\label{fig:5_2_incidents_by_type_and_hour}
-\end{figure}
-
 From \cref{fig:5_2_incidents_by_type_and_hour} we can notice a common pattern among different types:
 \begin{itemize}
 	\item The number of incidents is generally smaller in the night / morning (23 - 11) and higher in the other hours.
 	\item There are $2$ peaks, namely at $12$ and $20$: after these hours, incidents are still higher than the average but tend to gradually reduce in number.
 	\item For most incidents the peaks have a similar number of incidents; there are a couple of exceptions, namely \textit{Fraud Calls} and \textit{Commercial Burglaries}, where the peak at $12$ is much higher than the one at $20$. 
 \end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{figures/5_2_incidents_by_type_and_hour}
+	\caption{Number of incidents by type over the different hours of the day. The sheet is called \textit{Incidents Distribution over the Day} in Tableau.}
+	\label{fig:5_2_incidents_by_type_and_hour}
+\end{figure}
 
 \subsection*{Question 5.3}
 \textit{How long does it take to clear incidents, as a function of the hour when they were reported? For example, do incidents reported at noon get cleared faster than incidents reported in the middle of the night?}

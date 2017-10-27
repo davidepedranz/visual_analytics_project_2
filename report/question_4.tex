@@ -59,6 +59,27 @@ However, a lot of incidents with some particular initial cases are often classif
 	\label{fig:4_1_initial_vs_final_group_treemap}
 \end{figure}
 
+Another interesting question is whether final event types emerged from very different initial types, i.e. if there are types of incidents that are particular difficult to classify by the initial incident report.
+To answer this question, we use the same treemap, but with a different color coding:
+color now represents the final events type.
+Since there are too many types for an effective categorical color map, we group the less frequent ones into the \textit{Others} type.
+The user can interactively use the legend to select only some types of final incidents in order to compare and find types with similar patterns.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{figures/4_1_initial_vs_final_group_spread_treemap}
+	\caption{Correlation between the initial and final incident type, using color coding for the final events types (excluding incidents without an initial type). The sheet is called \textit{Initial vs Final Type (final types spread)} in Tableau.}
+	\label{fig:4_1_initial_vs_final_group_spread_treemap}
+\end{figure}
+
+\cref{fig:4_1_initial_vs_final_group_spread_treemap} shows the visualization.
+We can notice the following:
+\begin{itemize}
+	\item Most final groups contain incidents that are initially classified in many different group.
+	\item About half of the incidents in the final groups \textit{Suspicious Circumstances}, \textit{Disturbances}, \textit{Trespass} and \textit{Nuisance, Mischief} are initially classified as a different type. A possible interpretation is that these types are quite generic and match a wide range of incidents.
+	\item Most of the incidents in the other final groups are classified correctly from the beginning.
+	\item An exception is the final group \textit{Traffic Related Calls} that maps both the initial groups \textit{Traffic Related Calls} and \textit{Parking Violations}. For some reason, the latter is not a final group.
+\end{itemize}
 
 \subsection*{Question 4.2}
 \textit{How do the total number of incidents break down per incident reported type (Initial Type Group) and incident resolution type (Event Clearance Group)?}
@@ -84,16 +105,16 @@ We can notice the following:
 \subsection*{Question 4.3}
 \textit{How do the total number of incidents break down per incident resolution type (Event Clearance Group) and incident resolution subtype (Event Clearance Subgroup)?}
 
+The visualization uses a treemap, since groups and subgroups can naturally be organized in a tree hierarchy.
+Each group is represented by a rectangle, which can be divided in sub-rectangles to represent the subgroups, if any.
+Both color and area of the rectangles encode the number of incidents with the given type / subtype.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\columnwidth]{figures/4_3_groups_subgroups}
 	\caption{Incidents by Type and Subtype. The sheet is called \textit{Incidents Types Distribution (Group and Subgroup)} in Tableau.}
 	\label{fig:4_3_groups_subgroups}
 \end{figure}
-
-The visualization uses a treemap, since groups and subgroups can naturally be organized in a tree hierarchy.
-Each group is represented by a rectangle, which can be divided in sub-rectangles to represent the subgroups, if any.
-Both color and area of the rectangles encode the number of incidents with the given type / subtype.
 
 \cref{fig:4_3_groups_subgroups} shows the visualization.
 We can see that:

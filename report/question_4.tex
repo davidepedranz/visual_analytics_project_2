@@ -3,7 +3,7 @@
 \subsection*{Question 4.1}
 \textit{Incidents have two types: the type of the incident at the moment it was reported (Initial Type Group) and the type of the incident after it has been studied and classified (Event Clearance Group). Obviously, there should be some kind of correlation of the latter with the former (for instance, incidents reported as robberies are very likely to be also classified finally as robberies). How strong is this correlation?}
 
-The visualization uses a heatmap to show this correlation.
+The visualization uses a matrix plot to show this correlation.
 The rows show the incident types at the moment it was reported, while the columns show the type it was classified as (we will refer to it as the ``final'' type).
 Each cell in the map contains a square, whose area and color are proportional to the number of record for the particular row and column.
 Color uses a continuos heat colormap.
@@ -14,19 +14,20 @@ Starting from such an order, we have manually moved some rows and columns to typ
 For example, \textit{Initial Type Group} has the value \textit{Parking Violation}, but \textit{Event Clearance Group} does not have it:
 we have it closed to \textit{Traffic Related Calls}.
 
-\cref{fig:4_1_initial_vs_final_group_heatmap} shows the visualization.
+\cref{fig:4_1_initial_vs_final_group_matrix_plot} shows the visualization.
 We can see that:
 \begin{itemize}
     \item After some reordering of columns, most of the big squares are along the main diagonal. This means there is a high correlation between the initial and final types of incidents.
     \item In many cases there is a match between the initial and final type (e.g. \textit{Disturbances}). Nevertheless, in some cases a single initial type matches multiple more specific final types (e.g. \textit{Theft} matches \textit{Car prowl}, \textit{Other property} and \textit{Shoplifting}).
-    \item The first row of the table has a different behaviour and represents the incidents without an initial type. This group matches different final types, mostly \textit{Disturbances}, \textit{Suspicious circumstances} and \textit{Traffic related calls}.
+	\item The first row of the table has a different behaviour and represents the incidents without an initial type. This group matches different final types, mostly \textit{Disturbances}, \textit{Suspicious circumstances} and \textit{Traffic related calls}.
+	\item There is quite a high number of incidents without an initial type, but only few without a final type. Incidents are better classified after their resolution.
 \end{itemize}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\columnwidth]{figures/4_1_initial_vs_final_group_heatmap}
+	\includegraphics[width=\columnwidth]{figures/4_1_initial_vs_final_group_matrix_plot}
 	\caption{Correlation between the initial and final incident type. The sheet is called \textit{Initial vs Final Type} in Tableau.}
-	\label{fig:4_1_initial_vs_final_group_heatmap}
+	\label{fig:4_1_initial_vs_final_group_matrix_plot}
 \end{figure}
 
 The visualization answers the question, but requires some manual work to find the matching between initial and final types.
@@ -83,16 +84,16 @@ We can notice the following:
 \subsection*{Question 4.3}
 \textit{How do the total number of incidents break down per incident resolution type (Event Clearance Group) and incident resolution subtype (Event Clearance Subgroup)?}
 
-The visualization uses a treemap, since groups and subgroups can naturally be organized in a tree hierarchy.
-Each group is represented by a rectangle, which can be divided in sub-rectangles to represent the subgroups, if any.
-Both color and area of the rectangles encode the number of incidents with the given type / subtype.
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\columnwidth]{figures/4_3_groups_subgroups}
 	\caption{Incidents by Type and Subtype. The sheet is called \textit{Incidents Types Distribution (Group and Subgroup)} in Tableau.}
 	\label{fig:4_3_groups_subgroups}
 \end{figure}
+
+The visualization uses a treemap, since groups and subgroups can naturally be organized in a tree hierarchy.
+Each group is represented by a rectangle, which can be divided in sub-rectangles to represent the subgroups, if any.
+Both color and area of the rectangles encode the number of incidents with the given type / subtype.
 
 \cref{fig:4_3_groups_subgroups} shows the visualization.
 We can see that:

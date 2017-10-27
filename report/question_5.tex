@@ -3,22 +3,22 @@
 \subsection*{Question 5.1}
 \textit{How do the different types of incidents (as represented by Event Clearance Group) vary in number over the different years? Do you see different types of incidents having the same temporal variation pattern over the same year(s)?}
 
-The visualization uses bar charts and the small multiple design principle.
-The x-axis represent the time (in years), while the y-axis encodes the number of incidents for the given year.
-The bar chart is replicated for each incident type; bar charts for different types are organized in columns.
-Color is used to overload the encoding of the number of incidents (showed by the y-axis).
-Trend lines are drawn for each small bar chart to show the trend of the number of incidents over year for each different type.
-The bar charts are ordered for the total number of incidents per type (decreasing).
-The types with less incidents are aggregated together in the \textit{Others} group to spare space on the screen thus better and fit the visualization.
-Since there are very few data for $2009$ and $2010$, those years are removed from the visualization.
-We filter also null values for the date since we are interested in the trend of incidents over years.
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{figures/5_1_incidents_by_type_and_year}
 	\caption{Number of incidents by year and type. The sheet is called \textit{Number of Incidents by Year and Type} in Tableau.}
 	\label{fig:5_1_incidents_by_type_and_year}
 \end{figure}
+
+The visualization uses bar charts and the small multiple design principle.
+The x-axis represent the time (in years), while the y-axis encodes the number of incidents for the given year.
+The bar chart is replicated for each incident type; bar charts for different types are organized in columns.
+Color is used to overload the encoding of the number of incidents (showed by the y-axis).
+Trend lines are drawn for each small bar chart to show the trend of the number of incidents over year for each different type.
+The bar charts are ordered for the total number of incidents per type (decreasing).
+The types with less incidents are aggregated together in the \textit{Others} group to spare space on the screen and thus better fit the visualization.
+Since there are very few data for $2009$ and $2010$, those years are removed from the visualization.
+We filter also null values for the date since we are interested in the trend of incidents over years.
 
 \cref{fig:5_1_incidents_by_type_and_year} shows the visualization.
 We can observe the following:
@@ -34,13 +34,6 @@ To solve this problem, we created a second visualization using another bar chart
 The y-axis represents the incidents' types, the x-axis and color encode the number of incidents for the given year.
 We use a continuous heatmap for the color, but a different color for the maximum value in comparison with the visualization in \cref{fig:5_1_incidents_by_type_and_year}.
 
-The visualization is showed in \cref{fig:5_1_incidents_by_year}.
-We can notice that:
-\begin{itemize}
-    \item The majority of incidents in the dataset do not have the date information. The confident of the answer to the question is thus low.
-    \item The general temporal distribution of incidents has the same trend of most incidents' types.
-\end{itemize} 
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{figures/5_1_incidents_by_year}
@@ -48,15 +41,22 @@ We can notice that:
 	\label{fig:5_1_incidents_by_year}
 \end{figure}
 
+The visualization is showed in \cref{fig:5_1_incidents_by_year}.
+We can notice that:
+\begin{itemize}
+    \item The majority of incidents in the dataset do not have the date information. The confident of the answer to the question is thus low.
+    \item The general temporal distribution of incidents has the same trend of most incidents' types.
+\end{itemize} 
+
 The visualizations are grouped together in the \textit{Incidents Temporal Distribution by Type and Year} dashboard.
 
 
 \subsection*{Question 5.2}
 \textit{How do the different types of reported incidents (as represented by Initial Type Group) vary over the 24 hours of a day, for the entire data collection? Are there certain hours having a higher rate of reported incidents?}
 
-The visualization uses multiple and the small multiple design principle.
-The y-axis represent the hour of the day, while the x-axis and the color encode the number of incidents for the given hour.
-The bar chart is replicated for each incident type; bar charts for different types are organized in columns.
+The visualization uses bar charts and the small multiple design principle.
+For each chart, the y-axis represent the hour of the day, while the x-axis and the color encode the number of incidents for the given hour.
+The chart is replicated for each incident type, organized in columns.
 The bar charts are ordered for the total number of incidents per type (decreasing, from left to right).
 The types with less incidents are aggregated together in the \textit{Others} group to spare space on the screen thus better and fit the visualization and null values are filtered out.
 We add the average line for each type in order to easier spot hours with more or less incidents than the average.
@@ -68,11 +68,12 @@ We add the average line for each type in order to easier spot hours with more or
 	\label{fig:5_2_incidents_by_type_and_hour}
 \end{figure}
 
-From \cref{fig:5_2_incidents_by_type_and_hour} we can notice a common pattern among different types.
-The number of incidents is generally smaller in the night / morning (23 - 11) and higher in the other hours.
-There are $2$ peaks, namely at $12$ and $20$: after these hours, incidents are still higher than the average but tend to gradually reduce in number.
-For most incidents the peaks have a similar number of incidents; there are a couple of exceptions, namely \textit{Fraud Calls} and \textit{Commercial Burglaries}, where the peak at $12$ is much higher than the one at $20$. 
-
+From \cref{fig:5_2_incidents_by_type_and_hour} we can notice a common pattern among different types:
+\begin{itemize}
+	\item The number of incidents is generally smaller in the night / morning (23 - 11) and higher in the other hours.
+	\item There are $2$ peaks, namely at $12$ and $20$: after these hours, incidents are still higher than the average but tend to gradually reduce in number.
+	\item For most incidents the peaks have a similar number of incidents; there are a couple of exceptions, namely \textit{Fraud Calls} and \textit{Commercial Burglaries}, where the peak at $12$ is much higher than the one at $20$. 
+\end{itemize}
 
 \subsection*{Question 5.3}
 \textit{How long does it take to clear incidents, as a function of the hour when they were reported? For example, do incidents reported at noon get cleared faster than incidents reported in the middle of the night?}
@@ -86,7 +87,7 @@ Best practices for visualization suggests to use line charts instead of bar char
 In this case, however, we have discretized time into buckets of one hour and aggregated them together to compute the average.
 In other words, we treat time as a discrete ordinal value.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{figures/5_3_resolution_speed_vs_hour}
 	\caption{Resolution speed of incidents reported in different hour. The sheet is called \textit{Resolution Speed vs Day Hour} in Tableau.}

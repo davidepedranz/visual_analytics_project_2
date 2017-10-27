@@ -12,11 +12,14 @@ Size and opacity do not encode any particular information.
 However, the combination of small size, opacity and zoom level allows to visualize an approximation of the density of incidents.
 The zoom level is small in order to get an overview of the entire city that fits the screen.
 Size and opacity are adjusted accordingly.
-We added a layer to the city map in background to visualize the main streets.
+We added some layer to the city map in background to visualize the main streets and the coast.
+To add or remove layers in a map in Tableau, we used the \texttt{Map > Map Layers} option in the top menu bar:
+Tableau opens a left panel with all available layers and marks the selected one.
+In our case, we added the \texttt{Coastline} and the \texttt{Streets and Highways} layers.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.7\columnwidth]{figures/1_1_geographical_distribution_incidents}
+	\includegraphics[width=.65\columnwidth]{figures/1_1_geographical_distribution_incidents}
 	\caption{Geographical distribution of the incidents in Seattle. The screenshot is taken from the sheet called \textit{Geographical Distribution of Incidents in Seattle} in Tableau.}
 	\label{fig:1_1_geographical_distribution_incidents}
 \end{figure}
